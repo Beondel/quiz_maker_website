@@ -2,3 +2,19 @@ body {
     background-image: url("images/background.jpg");
     background-color: #cccccc;
 }
+
+#name {
+  color: white;
+  text-align: center;
+  font-family: "Courier New", Times, Monospace;
+  font-size: 350%;
+}
+
+#secondary {
+  color: white;
+  position: relative;
+  bottom: 60px;
+  text-align: center;
+  font-family: "Courier New", Times, Monospace;
+  font-size: 90%;
+}
