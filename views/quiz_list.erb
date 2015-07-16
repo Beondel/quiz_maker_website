@@ -3,25 +3,23 @@
  <head>
   <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="style.css">
-  <title></title>
+  <title>quiz list</title>
  </head>
  <body>
-   <form method="POST" action="/quiz">
-     <p>Enter the name of the quiz you want to take:</p><input type="text" name="quiz_taken">
-     <input id="smallbutton" type="submit" value="Take Quiz">
-   </form>
    <br>
-    <table style="width:50%">
-      <form>
-        <%for i in $quizes%>
-          <tr>
-            <td>  
-              <input type="radio" name='adam' id='rad<%=i%>'>
-              <label for='rad<%=i%>'><%=i%></label>
-            </td>
-          </tr>
-        <%end%>
-      </form>
-    </table>
-   </body>
+   <table style="width:50%">
+     <form>
+       <%for i in $quizes%>
+         <tr>
+           <td>  
+             <input type="radio" name='adam' id='rad<%=i%>'>
+             <label for='rad<%=i%>'><%=i%></label>
+           </td>
+         </tr>
+       <%end%>
+     </form>
+   </table>
+   <br>
+   <input id="smallbutton" type="submit" value="Take Quiz">
+ </body>
 </html>
