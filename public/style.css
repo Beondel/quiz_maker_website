@@ -2,6 +2,8 @@ body {
     background-image: url("images/background.jpg");
     background-color: #cccccc;
     background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #name {
