@@ -14,12 +14,12 @@ class MyApp < Sinatra::Base
   end
   
   post '/quiz_list' do
-=begin
-    if params.has_key?("quiz_name")
-      new_quiz = Quiz.new(params[:quiz_name], params[:quiz_description], params[:quiz_answers])
-      $quizzes << new_quiz
+    if params.has_key?("quiz_name") && params.has_key?("quiz_description") && params.has_key?("quiz_answers")
+      @quiz_created = true
+      @quiz_name = params[:quiz_name]
+      @quiz_description = params[:quiz_description]
+      @answers = params[:quiz_answers]
     end
-=end
     erb :quiz_list
   end
   
@@ -28,6 +28,10 @@ class MyApp < Sinatra::Base
   end
   
   post '/quiz' do
+    if params.has_key?("name")
+      new_quiz = Quiz.new(params[:name], params[:description], params[:answers])
+      $quizzes << new_quiz
+    end
     quiz_name = params[:quiz_selection]
     for i in 0...$quizzes.length
       if $quizzes[i].name == quiz_name
