@@ -12,12 +12,16 @@
    </form>
    <br>
     <table style="width:50%">
-      <%for i in $quizes%>
-        <tr>
-          <td><button type='button' id='smallbutton'><%=i%></button></td>
-        </tr>
-      <%end%>
+      <form>
+        <%for i in $quizes%>
+          <tr>
+            <td>  
+              <input type="radio" name='adam' id='rad<%=i%>'>
+              <label for='rad<%=i%>'><%=i%></label>
+            </td>
+          </tr>
+        <%end%>
+      </form>
     </table>
-
    </body>
 </html>
