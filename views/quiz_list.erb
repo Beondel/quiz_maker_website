@@ -7,8 +7,21 @@
  </head>
  <body>
    <form method="POST" action="/quiz">
-     <p>Enter the name of the quiz you want to take:</p><input class = "tb" type="text" name="quiz_taken">
-     <input id="smallbutton2" type="submit" value="Take Quiz">
+     <p>Enter the name of the quiz you want to take:</p><input type="text" name="quiz_taken">
+     <input id="smallbutton" type="submit" value="Take Quiz">
    </form>
- </body>
+   <br>
+    <table style="width:50%">
+      <form>
+        <%for i in $quizes%>
+          <tr>
+            <td>  
+              <input type="radio" name='adam' id='rad<%=i%>'>
+              <label for='rad<%=i%>'><%=i%></label>
+            </td>
+          </tr>
+        <%end%>
+      </form>
+    </table>
+   </body>
 </html>
