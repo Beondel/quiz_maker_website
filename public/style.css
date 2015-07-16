@@ -79,10 +79,11 @@ body {
 }
 
 
-#smallbutton {
+
+#smallbutton2 {
   position: relative;
   bottom: 5px;
-  width: 50px;
+  width: 90px;
   height: 20px;
   -moz-box-shadow: 3px 4px 0px 0px #1564ad;
 	-webkit-box-shadow: 3px 4px 0px 0px #1564ad;
