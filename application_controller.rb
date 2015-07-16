@@ -5,7 +5,9 @@ Bundler.require
 
 class MyApp < Sinatra::Base
   
-  $quizes = ['usa', 'adam_quiz', 'jack is a muff quiz']
+  quiz1 = Quiz.new("USA", "Name the states", "New York, New Jersey, Massachusetts")
+  quiz2 = Quiz.new("World", "Name all countries", "USA, Canada, UK")
+  $quizzes = [quiz1, quiz2]
   
   get '/' do
     erb :index
@@ -15,7 +17,7 @@ class MyApp < Sinatra::Base
 =begin
     if params.has_key?("quiz_name")
       new_quiz = Quiz.new(params[:quiz_name], params[:quiz_description], params[:quiz_answers])
-      $quizes << new_quiz
+      $quizzes << new_quiz
     end
 =end
     erb :quiz_list
