@@ -13,7 +13,7 @@
            <%for i in $quizzes%>
              <tr>
                <td>  
-                 <input type="radio" name='quiz_selection' id='rad<%=i.name%>'>
+                 <input type="radio" name='quiz_selection' id='rad<%=i.name%>' value='rad<%=i.name%>'>
                  <label for='rad<%=i.name%>'><%=i.name%></label>
                </td>
              </tr>

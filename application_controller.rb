@@ -28,6 +28,7 @@ class MyApp < Sinatra::Base
   end
   
   post '/quiz' do
+    puts params
     erb :quiz
   end
   
