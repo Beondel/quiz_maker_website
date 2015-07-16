@@ -5,7 +5,7 @@ Bundler.require
 
 class MyApp < Sinatra::Base
   
-  quiz1 = Quiz.new("USA", "Name the states", "New York, New Jersey, Massachusetts")
+  quiz1 = Quiz.new("USA", "Name the states", "New York, New Jersey, Massachusetts, Pennsylvania")
   quiz2 = Quiz.new("World", "Name all countries", "USA, Canada, UK")
   $quizzes = [quiz1, quiz2]
   
@@ -38,6 +38,20 @@ class MyApp < Sinatra::Base
     @quiz_description = quiz_taken.description
     @answers = quiz_taken.answers_list
     erb :quiz
+  end
+  
+  post '/results' do
+    answers = params.values
+    answers.delete_at(answers.length - 1)
+    key = answers.delete_at(answers.length - 1).split(",")
+    @score = 0
+    @num_questions = key.length
+    for i in 0...answers.length
+      if key.include?(answers[i].upcase)
+        @score += 1
+      end
+    end
+    erb :results
   end
   
 end

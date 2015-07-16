@@ -6,6 +6,23 @@
   <title></title>
  </head>
  <body>
-   <p><%=@quiz_name%><%=@quiz_description%><%=@answers%></p>
+   <center>
+   <p id="name"><%=@quiz_name%></p>
+   <p id="secondary"><%=@quiz_description%></p>
+   <form method="POST" action="/results">
+     <table>
+     <%for i in 0...@answers.length%>
+     <tr>
+       <td>
+         <input class="tb" type="text" name="<%=i%>">
+       </td>
+     </tr>
+     <%end%>
+     </table>
+     <br>
+     <input type="hidden" name="key" value="<%=@answers.join(",")%>">
+     <input id="smallbutton" type="submit" name="Submit your answers">
+     </form>
+   </center>
  </body>
 </html>
