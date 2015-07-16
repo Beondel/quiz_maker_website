@@ -28,7 +28,15 @@ class MyApp < Sinatra::Base
   end
   
   post '/quiz' do
-    puts params
+    quiz_name = params[:quiz_selection]
+    for i in 0...$quizzes.length
+      if $quizzes[i].name == quiz_name
+        quiz_taken = $quizzes[i]
+      end
+    end
+    @quiz_name = quiz_taken.name
+    @quiz_description = quiz_taken.description
+    @answers = quiz_taken.answers_list
     erb :quiz
   end
   
