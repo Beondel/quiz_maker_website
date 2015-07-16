@@ -5,7 +5,7 @@ Bundler.require
 
 class MyApp < Sinatra::Base
   
-  $quizes = []
+  $quizes = ['usa', 'adam_quiz']
   
   get '/' do
     erb :index
