@@ -12,10 +12,12 @@ class MyApp < Sinatra::Base
   end
   
   post '/quiz_list' do
-    if params != {}
+=begin
+    if params.has_key?("quiz_name")
       new_quiz = Quiz.new(params[:quiz_name], params[:quiz_description], params[:quiz_answers])
       $quizes << new_quiz
     end
+=end
     erb :quiz_list
   end
   
