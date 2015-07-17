@@ -15,14 +15,14 @@ body {
 
 
 #resultgreen {
-  color :green;
+  color: #94cd4b;
   text-align: center;
   font-family: "Courier New", Times, Monospace;
   font-size: 300%;
 }
 
 #resultred {
-  color: red;
+  color: #a32924;
   text-align: center;
   font-family: "Courier New", Times, Monospace;
   font-size: 300%;
