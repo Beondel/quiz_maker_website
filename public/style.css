@@ -20,7 +20,7 @@ body {
   border: 1px solid black;
   opacity:0.6;
   filter:alpha(opacity=60); /* For IE8 and earlier */
-  color: #597B2D;
+  color: #00FF00;
   text-align: center;
   font-family: "Courier New", Times, Monospace;
   font-size: 300%;
@@ -33,7 +33,7 @@ body {
   opacity:0.6;
   display:inline-block;
   filter:alpha(opacity=60); /* For IE8 and earlier */
-  color: #a32924;
+  color: red;
   text-align: center;
   font-family: "Courier New", Times, Monospace;
   font-size: 300%;
