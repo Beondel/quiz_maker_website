@@ -3,9 +3,17 @@
  <head>
   <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="style.css">
-  <title></title>
+  <title>Results</title>
  </head>
  <body>
    <p id = "name">Your score is: <%=@score%>/<%=@num_questions%></p>
+   <form method="POST" action="/">
+     <input type="submit" value="Return to Home">
+     <%for i in 0...$user_quizzes.length%>
+       <input type="hidden" name="user_quiz_name_<%=i%>" value="<%=$user_quizzes[i].name%>">
+       <input type="hidden" name="user_quiz_description_<%=i%>" value="<%=$user_quizzes[i].description%>">
+       <input type="hidden" name="user_quiz_answers_<%=i%>" value="<%=$user_quizzes[i].answers_list.join(", ")%>">
+     <%end%>
+   </form>
  </body>
 </html>

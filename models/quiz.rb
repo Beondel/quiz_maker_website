@@ -1,7 +1,7 @@
 class Quiz
   def initialize(name, description, answers, type = "list")
     @name = name
-    @answers = answers
+    @answers = answers.to_s
     @answers_list = []
     create_answers_list
     @completed = []

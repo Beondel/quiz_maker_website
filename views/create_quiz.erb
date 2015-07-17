@@ -3,14 +3,19 @@
  <head>
   <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="style.css">
-  <title></title>
+  <title>Create a Quiz</title>
  </head>
  <body>
    <form method="POST" action="/quiz_list">
-     <center><p>Enter the name of your quiz:</p><input class = "tb" type="text" name="quiz_name">
-     <p>Enter a description of your quiz:</p><input class = "tb" type="text" name="quiz_description">
-     <p>Enter the answers to your quiz:</p><input class = "tb" type="text" name="quiz_answers">
-       <input id = "smallbutton" type="submit" value="Create Quiz"></center>
+     <center><p>Enter the name of your quiz:</p><input class = "tb" type="text" name="user_quiz_name">
+     <p>Enter a description of your quiz:</p><input class = "tb" type="text" name="user_quiz_description">
+     <p>Enter the answers to your quiz:</p><input class = "tb" type="text" name="user_quiz_answers">
+     <input id = "smallbutton" type="submit" value="Create Quiz"></center>
+     <%for i in 0...$user_quizzes.length%>
+       <input type="hidden" name="user_quiz_name_<%=i%>" value="<%=$user_quizzes[i].name%>">
+       <input type="hidden" name="user_quiz_description_<%=i%>" value="<%=$user_quizzes[i].description%>">
+       <input type="hidden" name="user_quiz_answers_<%=i%>" value="<%=$user_quizzes[i].answers_list.join(", ")%>">
+     <%end%>
    </form>
  </body>
 </html>

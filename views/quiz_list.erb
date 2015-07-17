@@ -3,22 +3,22 @@
  <head>
   <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="style.css">
-  <title>quiz list</title>
+  <title>Quiz List</title>
  </head>
  <body>
    <center>
    <br>
      <form method="POST" action="quiz">
        <table style="width:50%">
-         <%if @quiz_created%>
+         <%for i in $user_quizzes%>
          <tr>
            <td>
-             <input type="radio" name='quiz_selection' id='rad<%=@quiz_name%>'  value='<%=@quiz_name%>' >
-             <label for='rad<%=@quiz_name%>' id = "selectbutton"  ><%=@quiz_name%>: <%=@quiz_description%></label>
+             <input type="radio" name='quiz_selection' id='rad<%=i.name%>'  value='<%=i.name%>' >
+             <label for='rad<%=i.name%>' id = "selectbutton"  ><%=i.name%>: <%=i.description%></label>
            </td>
          </tr>
          <%end%>
-           <%for i in $quizzes%>
+         <%for i in $quizzes%>
              <tr>
                <td>
                  <input type="radio" name='quiz_selection' id='rad<%=i.name%>'  value='<%=i.name%>' >
@@ -28,10 +28,10 @@
            <%end%>
          </table>
        <br>
-       <%if @quiz_created%>
-       <input type="hidden" name="name" value="<%=@quiz_name%>">
-       <input type="hidden" name="description" value="<%=@quiz_description%>">
-       <input type="hidden" name="answers" value="<%=@answers%>">
+       <%for i in 0...$user_quizzes.length%>
+       <input type="hidden" name="user_quiz_name_<%=i%>" value="<%=$user_quizzes[i].name%>">
+       <input type="hidden" name="user_quiz_description_<%=i%>" value="<%=$user_quizzes[i].description%>">
+       <input type="hidden" name="user_quiz_answers_<%=i%>" value="<%=$user_quizzes[i].answers_list.join(", ")%>">
        <%end%>
      <input id="smallbutton" type="submit" value="Take Quiz">
    </form>
