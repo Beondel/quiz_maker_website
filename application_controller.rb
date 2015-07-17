@@ -99,6 +99,7 @@ class MyApp < Sinatra::Base
     @num_questions = key.length
     for i in 0...answers.length
       if key.include?(answers[i].upcase)
+        key.delete(answers[i].upcase)
         @score += 1
       end
     end
