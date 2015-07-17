@@ -35,12 +35,21 @@ class MyApp < Sinatra::Base
       $user_quizzes << new_quiz
       c += 1
     end
-    if params.has_key?("user_quiz_name") && params["user_quiz_name"] != "" && params["user_quiz_description"] != "" && params["user_quiz_answers"] != ""
-      @user_quiz_name = params[:user_quiz_name]
-      @user_quiz_description = params[:user_quiz_description]
-      @user_quiz_answers = params[:user_quiz_answers]
-      new_quiz = Quiz.new(@user_quiz_name, @user_quiz_description, @user_quiz_answers)
-      $user_quizzes << new_quiz
+    if params.has_key?("user_quiz_name")
+      name_list = []
+      for i in 0...$quizzes.length
+        name_list << $quizzes[i].name
+      end
+      for i in 0...$user_quizzes.length
+        name_list << $user_quizzes[i].name
+      end
+      if !name_list.include?(params["user_quiz_name"]) && params["user_quiz_name"] != "" && params["user_quiz_description"] != "" && params["user_quiz_answers"] != ""
+        @user_quiz_name = params[:user_quiz_name]
+        @user_quiz_description = params[:user_quiz_description]
+        @user_quiz_answers = params[:user_quiz_answers]
+        new_quiz = Quiz.new(@user_quiz_name, @user_quiz_description, @user_quiz_answers)
+        $user_quizzes << new_quiz
+      end
     end
     erb :quiz_list
   end

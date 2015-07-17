@@ -8,10 +8,16 @@
  <body>
    <p id="name">L U S O R</p>
    <form method="POST" action="/quiz_list" autocomplete="off">
+<<<<<<< HEAD
      <center>
      <p id = "tertiary">Enter the name of your quiz:</p><input class = "tb" type="text" name="user_quiz_name">
      <p id = "tertiary">Enter a description of your quiz:</p><input class = "tb" type="text" name="user_quiz_description">
      <p id = "tertiary">Enter the answers to your quiz, separated by ', '</p><p id = "tertiary">Example: answer1, answer2, answer3</p><input class = "tb" type="text" name="user_quiz_answers">
+=======
+     <center><p>Enter the name of your quiz (must not match any existing quiz):</p><input class = "tb" type="text" name="user_quiz_name">
+     <p>Enter a description of your quiz:</p><input class = "tb" type="text" name="user_quiz_description">
+     <p>Enter the answers to your quiz, separated by ', '</p><p>Example: answer1, answer2, answer3</p><input class = "tb" type="text" name="user_quiz_answers">
+>>>>>>> 268efa3f492473e649a0ac00c7bcadb162259c24
      <input id = "smallbutton" type="submit" value="Create Quiz"></center>
      <%for i in 0...$user_quizzes.length%>
        <input type="hidden" name="user_quiz_name_<%=i%>" value="<%=$user_quizzes[i].name%>">
