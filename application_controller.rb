@@ -66,20 +66,25 @@ class MyApp < Sinatra::Base
       $user_quizzes << new_quiz
       c += 1
     end
-    quiz_name = params[:quiz_selection]
-    for i in 0...$quizzes.length
-      if $quizzes[i].name == quiz_name
-        quiz_taken = $quizzes[i]
+    if params.has_key?("quiz_selection")
+      @selection_made = true
+      quiz_name = params[:quiz_selection]
+      for i in 0...$quizzes.length
+        if $quizzes[i].name == quiz_name
+          quiz_taken = $quizzes[i]
+        end
       end
-    end
-    for i in 0...$user_quizzes.length
-      if $user_quizzes[i].name == quiz_name
-        quiz_taken = $user_quizzes[i]
+      for i in 0...$user_quizzes.length
+        if $user_quizzes[i].name == quiz_name
+          quiz_taken = $user_quizzes[i]
+        end
       end
+      @quiz_name = quiz_taken.name
+      @quiz_description = quiz_taken.description
+      @answers = quiz_taken.answers_list
+    else
+      @selection_made = false
     end
-    @quiz_name = quiz_taken.name
-    @quiz_description = quiz_taken.description
-    @answers = quiz_taken.answers_list
     erb :quiz
   end
   
