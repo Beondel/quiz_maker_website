@@ -8,7 +8,7 @@
  <body>
    <p id="name">L U S O R</p>
    <p id="secondary">Welcome to the #1 quiz platform NA</p>
-   <form method="POST" action="/quiz_list">
+   <form method="POST" action="/quiz_list" autocomplete="off">
      <center><input id = "quizlist" type="submit" value="Take a Quiz"></center>
      <%for i in 0...$user_quizzes.length%>
        <input type="hidden" name="user_quiz_name_<%=i%>" value="<%=$user_quizzes[i].name%>">
@@ -16,7 +16,7 @@
        <input type="hidden" name="user_quiz_answers_<%=i%>" value="<%=$user_quizzes[i].answers_list.join(", ")%>">
      <%end%>
    </form>
-   <form method="POST" action="/create_quiz">
+   <form method="POST" action="/create_quiz" autocomplete="off">
      <%for i in 0...$user_quizzes.length%>
        <input type="hidden" name="user_quiz_name_<%=i%>" value="<%=$user_quizzes[i].name%>">
        <input type="hidden" name="user_quiz_description_<%=i%>" value="<%=$user_quizzes[i].description%>">

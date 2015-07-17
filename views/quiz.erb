@@ -14,7 +14,7 @@
    <%if @selection_made%>
    <p id="name"><%=@quiz_name%></p>
    <p id="secondary"><%=@quiz_description%></p>
-   <form method="POST" action="/results">
+   <form method="POST" action="/results" autocomplete="off">
      <table>
      <%for i in 0...@answers.length%>
      <tr>
@@ -36,7 +36,7 @@
      </form>
      <%else%>
      <p id="name">Please select a quiz</p>
-     <form method="POST" action="/quiz_list">
+     <form method="POST" action="/quiz_list" autocomplete="off">
        <input id="smallbutton" type="submit" value="Return to list">
        <%for i in 0...$user_quizzes.length%>
          <input type="hidden" name="user_quiz_name_<%=i%>" value="<%=$user_quizzes[i].name%>">
