@@ -3,10 +3,15 @@
  <head>
   <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="style.css">
+   <%if @selection_made%>
    <title>L U S O R: <%=@quiz_name%></title>
+   <%else%>
+   <title>L U S O R: error</title>
+   <%end%>
  </head>
  <body>
    <center>
+   <%if @selection_made%>
    <p id="name"><%=@quiz_name%></p>
    <p id="secondary"><%=@quiz_description%></p>
    <form method="POST" action="/results">
@@ -29,6 +34,17 @@
      <%end%>
      <input id="smallbutton" type="submit" value="Submit your answers">
      </form>
+     <%else%>
+     <p id="name">Please select a quiz</p>
+     <form method="POST" action="/quiz_list">
+       <input id="smallbutton" type="submit" value="Return to list">
+       <%for i in 0...$user_quizzes.length%>
+         <input type="hidden" name="user_quiz_name_<%=i%>" value="<%=$user_quizzes[i].name%>">
+         <input type="hidden" name="user_quiz_description_<%=i%>" value="<%=$user_quizzes[i].description%>">
+         <input type="hidden" name="user_quiz_answers_<%=i%>" value="<%=$user_quizzes[i].answers_list.join(", ")%>">
+       <%end%>
+     </form>
+     <%end%>
    </center>
  </body>
 </html>
