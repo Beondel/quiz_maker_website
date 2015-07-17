@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="style.css">
-  <title></title>
+   <title><%=@quiz_name%></title>
  </head>
  <body>
    <center>
@@ -20,8 +20,14 @@
      <%end%>
      </table>
      <br>
-     <input type="hidden" name="key" value="<%=@answers.join(",")%>">
-     <input id="smallbutton" type="submit" name="Submit your answers">
+     <input type="hidden" name="key" value="<%=@answers.join(", ")%>">
+     <input type="hidden" name="num_answers" value="<%=@answers.length%>">
+     <%for i in 0...$user_quizzes.length%>
+       <input type="hidden" name="user_quiz_name_<%=i%>" value="<%=$user_quizzes[i].name%>">
+       <input type="hidden" name="user_quiz_description_<%=i%>" value="<%=$user_quizzes[i].description%>">
+       <input type="hidden" name="user_quiz_answers_<%=i%>" value="<%=$user_quizzes[i].answers_list.join(", ")%>">
+     <%end%>
+     <input id="smallbutton" type="submit" value="Submit your answers">
      </form>
    </center>
  </body>
