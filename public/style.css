@@ -40,6 +40,12 @@ body {
 	width: 230px;
 }
 
+#tertiary {
+  color: white;
+  font-family: "Courier New", Times, Monospace;
+  font-size: 90%;
+}
+
 #secondary {
   color: white;
   position: relative;
