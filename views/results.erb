@@ -7,11 +7,11 @@
  </head>
  <body>
    <p id="name">L U S O R</p>
-   <%if @score == @num_questions%>
+   <center><%if @score == @num_questions%>
      <p id = "resultgreen">Your score is: <%=@score%>/<%=@num_questions%></p>
    <%else%>
      <p id = "resultred">Your score is: <%=@score%>/<%=@num_questions%></p>
-   <%end%>
+     <%end%></center>
    <form method="POST" action="/" autocomplete="off">
      <center><input id = smallbutton type="submit" value="Return to Home"></center>
      <%for i in 0...$user_quizzes.length%>
