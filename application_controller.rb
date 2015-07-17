@@ -18,10 +18,12 @@ class MyApp < Sinatra::Base
   $user_quizzes = []
   
   get '/' do
+    $user_quizzes = []
     erb :index
   end
   
   post '/' do
+    $user_quizzes = []
     c = 0
     while params["user_quiz_name_#{c}"] != nil && params["user_quiz_description_#{c}"] != nil && params["user_quiz_answers_#{c}"] != nil
       new_quiz = Quiz.new(params["user_quiz_name_#{c}"], params["user_quiz_description_#{c}"], params["user_quiz_answers_#{c}"])
@@ -32,6 +34,7 @@ class MyApp < Sinatra::Base
   end
   
   post '/quiz_list' do
+    $user_quizzes = []
     c = 0
     while params["user_quiz_name_#{c}"] != nil && params["user_quiz_description_#{c}"] != nil && params["user_quiz_answers_#{c}"] != nil
       new_quiz = Quiz.new(params["user_quiz_name_#{c}"], params["user_quiz_description_#{c}"], params["user_quiz_answers_#{c}"])
@@ -58,6 +61,7 @@ class MyApp < Sinatra::Base
   end
   
   post '/create_quiz' do
+    $user_quizzes = []
     c = 0
     while params["user_quiz_name_#{c}"] != nil && params["user_quiz_description_#{c}"] != nil && params["user_quiz_answers_#{c}"] != nil
       new_quiz = Quiz.new(params["user_quiz_name_#{c}"], params["user_quiz_description_#{c}"], params["user_quiz_answers_#{c}"])
@@ -68,6 +72,7 @@ class MyApp < Sinatra::Base
   end
   
   post '/quiz' do
+    $user_quizzes = []
     c = 0
     while params["user_quiz_name_#{c}"] != nil && params["user_quiz_description_#{c}"] != nil && params["user_quiz_answers_#{c}"] != nil
       new_quiz = Quiz.new(params["user_quiz_name_#{c}"], params["user_quiz_description_#{c}"], params["user_quiz_answers_#{c}"])
@@ -97,6 +102,7 @@ class MyApp < Sinatra::Base
   end
   
   post '/results' do
+    $user_quizzes = []
     c = 0
     while params["user_quiz_name_#{c}"] != nil && params["user_quiz_description_#{c}"] != nil && params["user_quiz_answers_#{c}"] != nil
       new_quiz = Quiz.new(params["user_quiz_name_#{c}"], params["user_quiz_description_#{c}"], params["user_quiz_answers_#{c}"])
